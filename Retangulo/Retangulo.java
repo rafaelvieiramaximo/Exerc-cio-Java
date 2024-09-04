@@ -24,4 +24,11 @@ public class Retangulo {
     public double calcPerimetro(){
         return 2 * (altura + largura);
     }
+
+    public double calcDiagonal(){
+        return Math.sqrt(Math.pow(altura, 2) + Math.pow(largura, 2));
+    }
+
+
+
 }

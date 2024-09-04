@@ -27,7 +27,8 @@ public class Menu {
                 System.out.println("\nEscolha qual cálculo você deseja realizar");
                 System.out.println("1. Ver área do retangulo");
                 System.out.println("2. Ver perímetro do retangulo");
-                System.out.println("3. Sair");
+                System.out.println("3. Ver diagonal do retangulo");
+                System.out.println("4. Sair");
                 opcao = scanner.nextInt();
                 
                 switch (opcao) {
@@ -38,12 +39,14 @@ public class Menu {
                     System.out.println(String.format("O perímetro do retângulo: %.2f", retangulo.calcPerimetro()));
                     break;
                     case 3:
-                    System.out.println("\nSaindo...");
+                    System.out.println(String.format("A diagonal do retângulo: %.2f", retangulo.calcDiagonal()));
                     break;
+                    case 4:
+                    System.out.println("Saindo...");
                     default:
                     System.out.println("Opção inválida. Tente novamente.");
                     }
-                }while (opcao != 3);
+                }while (opcao != 4);
                
                 
                 System.out.println("\nDeseja calcular outro retangulo?");
