@@ -21,6 +21,7 @@ public class Menu {
             System.out.println("3 - Devolver livro");
             System.out.println("4 - Emprestar livro");
             System.out.println("5 - Sair");
+            System.out.printf("Digite a opção: ");
             opcao = entrada.nextInt();
             entrada.nextLine(); // Captura o "enter" após a escolha da opção
 
@@ -83,7 +84,7 @@ public class Menu {
                             System.out.println("Digite o número de dias de atraso na devolução (se houver): ");
                             int diasAtraso = entrada.nextInt();
                             double valorMulta = livroDevolucao.devolver(diasAtraso);
-                            System.out.println("\nValor da multa: " + valorMulta);
+                            System.out.println("\nValor da multa pela devolução do livro " + livroDevolucao.getTitulo() +": R$ " + valorMulta);
                             
                         }
                     }
@@ -103,7 +104,7 @@ public class Menu {
                                 System.out.println("\nO livro já está emprestado.");
                             } else {
                                 livroEmprestimo.emprestar();
-                                System.out.println("\nLivro emprestado com sucesso!");
+                                System.out.println("\n"+ livroEmprestimo.getTitulo()+" emprestado com sucesso!");
                             }
                         } else {
                             System.out.println("Livro não encontrado.");

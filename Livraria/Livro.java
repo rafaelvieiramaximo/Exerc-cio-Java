@@ -54,13 +54,8 @@ public class Livro {
     public double devolver(int dias) {
         this.situacao = false;
 
-        if (dias > 7) {
-            double multa = (dias - 7) * valMultaDiaria;
-            return multa;
-        } else {
-            return 0;
-
-        }
+        double multa = dias * this.valMultaDiaria;
+        return multa;
     }
 
     public static Livro buscarLivro(ArrayList<Livro> livros, int id) {
