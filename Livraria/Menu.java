@@ -21,9 +21,8 @@ public class Menu {
             System.out.println("3 - Devolver livro");
             System.out.println("4 - Emprestar livro");
             System.out.println("5 - Sair");
-            System.out.printf("Digite a opção: ");
+            System.out.printf("Digite a opção desejada: ");
             opcao = entrada.nextInt();
-            entrada.nextLine(); // Captura o "enter" após a escolha da opção
 
             switch (opcao) {
 
@@ -69,6 +68,7 @@ public class Menu {
 
                 case 3:
                     // Devolução de livros
+                    //False = Disponível e True = Emprestado
                     if (livros.isEmpty()) {
                         System.out.println("\nAinda nenhum livro foi cadastrado no sistema.");
                     } else {
@@ -77,9 +77,9 @@ public class Menu {
                         Livro livroDevolucao = Livro.buscarLivro(livros, idLivroDevolucao);
 
                         if (livroDevolucao == null) {
-                            System.out.println("Livro não encontrado.");
+                            System.out.println("\n---Livro não encontrado---");
                         } else if (!livroDevolucao.isSituacao()) {
-                            System.out.println("\nO livro está disponível.");
+                            System.out.println("\n---O livro está disponível---");
                         } else {
                             System.out.println("Digite o número de dias de atraso na devolução (se houver): ");
                             int diasAtraso = entrada.nextInt();
@@ -92,6 +92,7 @@ public class Menu {
 
                 case 4:
                     // Empréstimo de livros
+                    //False = Disponível e True = Emprestado
                     if (livros.isEmpty()) {
                         System.out.println("\nNenhum livro cadastrado ainda.");
                     } else {
@@ -120,7 +121,7 @@ public class Menu {
                     System.out.println("\n\nOpção selecionada é inválida. Tente novamente.");
                     break;
             }
-        } while (opcao != 6);
+        } while (opcao != 5);
 
         entrada.close();
     }
