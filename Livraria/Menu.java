@@ -20,7 +20,8 @@ public class Menu {
             System.out.println("2 - Consultar o livro");
             System.out.println("3 - Devolver livro");
             System.out.println("4 - Emprestar livro");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Listar todos os livros");
+            System.out.println("6 - Sair");
             System.out.printf("Digite a opção desejada: ");
             opcao = entrada.nextInt();
 
@@ -28,14 +29,14 @@ public class Menu {
 
                 case 1:
                     // Cadastro de livros
-                    System.out.println("\nAgora, cadastre o ID do livro:");
+                    System.out.printf("\nAgora, cadastre o ID do livro: ");
                     int id = entrada.nextInt();
                     entrada.nextLine(); // Captura o "enter" após o ID
 
-                    System.out.println("\nCadastre o título do livro:");
+                    System.out.printf("\nCadastre o título do livro: ");
                     String title = entrada.nextLine();
 
-                    System.out.println("\nDigite o valor da multa diária: ");
+                    System.out.printf("\nDigite o valor da multa diária: ");
                     double multa = entrada.nextDouble();
 
                     Livro livro = new Livro(id, title);
@@ -112,8 +113,19 @@ public class Menu {
                         }
                     }
                     break;
-
                 case 5:
+                    if(livros.isEmpty()){
+                       System.out.println("\nNenhum livro cadastrado ainda.");
+                    }else{
+                        System.out.println("Lista de todos os livros cadastrados: ");
+                        
+                        for(Livro l : livros){
+                            String status1 = l.isSituacao() ? "Emprestado" : "Disponível";
+                            System.out.println("ID: " + l.getIdentificacao() + "\nTítulo: " + l.getTitulo() + "\nSituação: \n" + status1 );
+                        }
+                    }
+                    break;
+                case 6:
                     System.out.println("\n\nSaindo do sistema...");
                     break;
 
@@ -121,7 +133,8 @@ public class Menu {
                     System.out.println("\n\nOpção selecionada é inválida. Tente novamente.");
                     break;
             }
-        } while (opcao != 5);
+        } while (opcao != 6);
+
 
         entrada.close();
     }
