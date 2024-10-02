@@ -93,6 +93,8 @@ public class Aplic {
         System.out.println("Taxa de incentivo: " + percent.format(pj.getTaxaIncentivo()));
         System.out.println("Total de Compras: " + def.format(pj.getTotalCompras()));
         System.out.println("Total do bônus: " + def.format(pj.calcBonus(anoAtual)));
+
+        enter.close();
     }
     
 }
